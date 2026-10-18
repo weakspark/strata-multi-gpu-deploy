@@ -1,0 +1,23 @@
+# Strata 推理服务器 systemd 常驻服务(4 副本 + 共享专家池版)
+# 安装前替换 YOUR_USER 和主目录路径,然后:
+#   sudo cp strata.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now strata
+
+[Unit]
+Description=Strata local LLM inference server (4x data-parallel replicas + shared expert arena)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/home/YOUR_USER/Strata
+ExecStart=/home/YOUR_USER/Strata/run-unsloth-ud-iq4_xs.sh
+Restart=on-failure
+RestartSec=15
+# 大范围 hipHostRegister 的锁定上限;重启后务必先:
+#   sudo mount -o remount,size=70G /dev/shm
+LimitMEMLOCK=infinity
+
+[Install]
+WantedBy=multi-user.target
