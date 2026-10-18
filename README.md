@@ -2,7 +2,7 @@
 
 > 建议仓库名:`strata-multi-gpu-deploy`(或 `strata-4x7900xtx-parallel`)
 
-在 4 张 RX 7900 XTX + **单颗** AMD EPYC 7K62(48 核 96 线程)+ 128GB 内存的"穷人顶配"上,把 [Strata](https://github.com/Niko1221/Strata)(Qwen3.8-Flash-Next 125B MoE 本地推理)从官方默认配置改造成 **4 路真并发、聚合 188.6 tok/s、256K 上下文**——专家权重在内存里只放**一份**,四张卡按需取用。
+在 4 张 RX 7900 XTX + **单颗** AMD EPYC 7K62(48 核 96 线程)+ 128GB 内存的"穷人顶配"上,把 [Strata](https://github.com/Niko1221/Strata)(Qwen3.8-Flash-Next 125B MoE 本地推理 UD-IQ4_XS 版本)从官方默认配置改造成 **4 路真并发、聚合 188.6 tok/s、256K 上下文**——专家权重在内存里只放**一份**,四张卡按需取用。
 
 > English summary at the bottom. / [English intro](#english-summary)
 
