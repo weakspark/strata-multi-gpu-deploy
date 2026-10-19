@@ -1,4 +1,4 @@
-# The 4-replica shared-arena crash: full investigation & the 1 GiB registration fix
+# The 4-replica shared-arena crash: full investigation & the capped-registration fix
 
 This is the complete evidence chain behind the `STRATA_ARENA_PIN_GIB` (1/4/16 GiB tested stable; 25 GiB+ crashes) recommendation in the README. Everything below was measured on one machine: 4× RX 7900 XTX (gfx1100), EPYC 7K62, 128 GB DDR4-3200, Ubuntu 24.04.5 (kernel 6.8.0-147), Strata 0.1.45, TheRock ROCm wheels 7.10.0a20251120 and 7.14.0a20260612 (both affected).
 
